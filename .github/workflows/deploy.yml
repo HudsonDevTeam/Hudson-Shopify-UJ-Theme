@@ -27,6 +27,12 @@ jobs:
           cp -R config/* merged_theme/config/
           # Copy over other store-specific customizations if needed
 
+      - name: Install Shopify CLI
+        run: |
+          echo "Installing Shopify CLI..."
+          curl -s https://shopify.dev/cli/install | bash
+          shopify version  # Verifies the installation
+
       - name: Deploy to Shopify
         run: |
           shopify theme push --path=merged_theme --store=${{ secrets.SHOPIFY_STORE_URL }} --password=${{ secrets.SHOPIFY_ACCESS_TOKEN }}
