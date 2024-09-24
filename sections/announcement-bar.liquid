@@ -1,0 +1,60 @@
+{% if section.settings['show-announcment'] %}
+<section>
+    <div class="announcement-bar">
+        <div>
+        {% if section.settings.image != blank %}
+            <img width="40" height="40" loading="lazy" src="{{ section.settings.image | image_url }}">
+        {% else %}
+             <img width="80" height="40" loading="lazy" src="{{ 'nike.png' | asset_url }}">
+
+            {% endif %}
+        </div>
+        <div>
+        
+        
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<style>
+.announcement-bar{
+    background: {{ section.settings.background }};
+    color:{{ section.settings.text_color }}
+}
+</style>
+
+{% schema %}
+{
+"name":"Announcement Bar",
+"settings":[
+    {
+        "type": "checkbox",
+        "id": "show-announcment",
+        "label": "Show Announcment",
+        "default":true
+    },
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "pick image",
+        "info":"png recommended format"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#F4F4F4"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#000000"
+    }
+],
+"presets":[
+    {"name": "announcement-bar"}
+]
+}
+{% endschema %}
