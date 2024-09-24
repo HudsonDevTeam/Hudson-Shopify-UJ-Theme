@@ -28,10 +28,7 @@ jobs:
           # Copy over other store-specific customizations if needed
 
       - name: Install Shopify CLI
-        run: |
-          echo "Installing Shopify CLI..."
-          curl -s https://shopify.dev/cli/install | bash
-          shopify version  # Verifies the installation
+        run: npm install -g @shopify/cli @shopify/theme
 
       - name: Deploy to Shopify
         run: |
