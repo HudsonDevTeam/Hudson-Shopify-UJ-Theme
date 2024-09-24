@@ -1,0 +1,3 @@
+[submodule "moonbase"]
+	path = moonbase
+	url = https://github.com/HudsonDevTeam/Hudson-Shopify-BaseTheme.git
